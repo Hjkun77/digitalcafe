@@ -1,0 +1,12 @@
+[
+    {"username":"joe@example.com",
+     "password":"Ch@ng3m3!",
+     "first_name":"Joe",
+     "last_name":"Ilagan"
+    },
+    {"username":"eb@example.com",
+     "password":"Ch@ng3m3!",
+     "first_name":"EB",
+     "last_name":"Ilagan"
+    }
+    ]
