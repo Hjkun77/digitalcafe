@@ -2,8 +2,11 @@ from flask import Flask,redirect
 from flask import render_template
 from flask import request
 from flask import session
+from bson.json_util import loads, dumps
+from flask import make_response
 import database as db
 import authentication
+import ordermanagement as om
 import logging
 
 app = Flask(__name__)
@@ -12,10 +15,8 @@ app = Flask(__name__)
 # Keep this really secret!
 app.secret_key = b's@g@d@c0ff33!'
 
-
 logging.basicConfig(level=logging.DEBUG)
 app.logger.setLevel(logging.INFO)
-
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -95,3 +96,26 @@ def addtocart():
 @app.route('/cart')
 def cart():
     return render_template('cart.html')
+
+@app.route('/checkout')
+def checkout():
+    # clear cart in session memory upon checkout
+    om.create_order_from_cart()
+    session.pop("cart",None)
+    return redirect('/ordercomplete')
+
+@app.route('/ordercomplete')
+def ordercomplete():
+    return render_template('ordercomplete.html')
+
+@app.route('/api/products',methods=['GET'])
+def api_get_products():
+    resp = make_response( dumps(db.get_products()) )
+    resp.mimetype = 'application/json'
+    return resp
+    
+@app.route('/api/products/<int:code>',methods=['GET'])
+def api_get_product(code):
+    resp = make_response(dumps(db.get_product(code)))
+    resp.mimetype = 'application/json'
+    return resp

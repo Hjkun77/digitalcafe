@@ -20,6 +20,7 @@
 		<td><b>{{ session["cart"].values()|sum(attribute="subtotal") }}</b></td>
 	</tr>
 </table>
+<a href="checkout">Checkout</a>
 {% else %}
 <div>Your cart is empty</div>
 {% endif %} {% include "footer.html" %}
