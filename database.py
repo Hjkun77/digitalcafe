@@ -116,19 +116,19 @@ def get_products():
 def get_branch(code):
     branches_coll = products_db["branches"]
 
-    branch = branches_coll.find_one({"code":code},{"_id":0})
+    branch = branches_coll.find_one({"code":code})
 
     return branch
 
 def get_branches():
-    branches_list = []
+    branch_list = []
 
     branches_coll = products_db["branches"]
 
-    for p in branches_coll.find({},{"_id":0}):
-        branches_list.append(p)
+    for p in branches_coll.find({}):
+        branch_list.append(p)
 
-    return branches_list
+    return branch_list
 
 ## Users
 def get_user(username):
