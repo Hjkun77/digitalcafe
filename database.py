@@ -15,13 +15,13 @@ order_management_db = myclient["order_management"]
 #     1200: {"name":"Mango Cream Pie","price":200},
 # }
 
-# branches = {
-#     1: {"name":"Katipunan","phonenumber":"09179990000"},
-#     2: {"name":"Tomas Morato","phonenumber":"09179990001"},
-#     3: {"name":"Eastwood","phonenumber":"09179990002"},
-#     4: {"name":"Tiendesitas","phonenumber":"09179990003"},
-#     5: {"name":"Arcovia","phonenumber":"09179990004"},
-# }
+branches = {
+    1: {"name":"Katipunan","phonenumber":"09179990000"},
+    2: {"name":"Tomas Morato","phonenumber":"09179990001"},
+    3: {"name":"Eastwood","phonenumber":"09179990002"},
+    4: {"name":"Tiendesitas","phonenumber":"09179990003"},
+    5: {"name":"Arcovia","phonenumber":"09179990004"},
+}
 
 # users = {
 #     "chums@example.com":{"password":"Ch@ng3m3!",
@@ -123,7 +123,7 @@ def get_branch(code):
 def get_branches():
     branches_list = []
 
-    branches_coll = products_db["products"]
+    branches_coll = products_db["branches"]
 
     for p in branches_coll.find({},{"_id":0}):
         branches_list.append(p)
