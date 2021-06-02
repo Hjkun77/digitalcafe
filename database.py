@@ -103,15 +103,15 @@ def get_products():
 def get_branch(code):
     return branches[code]
 
-# def get_branches():
-#     branch_list = []
+def get_branches():
+    branch_list = []
 
-#     for i,v in branches.items():
-#         branch = v
-#         branch.setdefault("code",i)
-#         branch_list.append(branch)
+    for i,v in branches.items():
+        branch = v
+        branch.setdefault("code",i)
+        branch_list.append(branch)
 
-#     return branch_list
+    return branch_list
 
 # def get_branch(code):
 #     branches_coll = products_db["branches"]
