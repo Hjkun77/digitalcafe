@@ -124,5 +124,18 @@ def create_order(order):
     orders_coll = order_management_db['orders']
     orders_coll.insert(order)
 
+def get_orders():
+    order_list = []
 
+    order_coll = order_management_db['orders']
+
+    for i in order_coll.find({}):
+        order_list.append(i)
+
+    return order_list
+
+## Additional
+def change_pass(username, password):
+    order_management_db['customers'].update({"username":username}, {"$set":{"password":password}})
+    return True
 
