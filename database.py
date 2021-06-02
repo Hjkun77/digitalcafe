@@ -15,13 +15,13 @@ order_management_db = myclient["order_management"]
 #     1200: {"name":"Mango Cream Pie","price":200},
 # }
 
-# branches = {
-#     1: {"name":"Katipunan","phonenumber":"09179990000"},
-#     2: {"name":"Tomas Morato","phonenumber":"09179990001"},
-#     3: {"name":"Eastwood","phonenumber":"09179990002"},
-#     4: {"name":"Tiendesitas","phonenumber":"09179990003"},
-#     5: {"name":"Arcovia","phonenumber":"09179990004"},
-# }
+branches = {
+    1: {"name":"Katipunan","phonenumber":"09179990000"},
+    2: {"name":"Tomas Morato","phonenumber":"09179990001"},
+    3: {"name":"Eastwood","phonenumber":"09179990002"},
+    4: {"name":"Tiendesitas","phonenumber":"09179990003"},
+    5: {"name":"Arcovia","phonenumber":"09179990004"},
+}
 
 # users = {
 #     "chums@example.com":{"password":"Ch@ng3m3!",
@@ -100,8 +100,8 @@ def get_products():
 
 
 ## Branches
-# def get_branch(code):
-#     return branches[code]
+def get_branch(code):
+    return branches[code]
 
 # def get_branches():
 #     branch_list = []
@@ -113,22 +113,22 @@ def get_products():
 
 #     return branch_list
 
-def get_branch(code):
-    branches_coll = products_db["branches"]
+# def get_branch(code):
+#     branches_coll = products_db["branches"]
 
-    branch = branches_coll.find_one({"code":code})
+#     branch = branches_coll.find_one({"code":code})
 
-    return branch
+#     return branch
 
-def get_branches():
-    branch_list = []
+# def get_branches():
+#     branch_list = []
 
-    branches_coll = products_db["branches"]
+#     branches_coll = products_db["branches"]
 
-    for p in branches_coll.find({}):
-        branch_list.append(p)
+#     for p in branches_coll.find({}):
+#         branch_list.append(p)
 
-    return branch_list
+#     return branch_list
 
 ## Users
 def get_user(username):
