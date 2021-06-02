@@ -116,7 +116,7 @@ def get_products():
 def get_branch(code):
     branches_coll = products_db["branches"]
 
-    branch = branches_coll.find_one({"code":code})
+    branch = branches_coll.find_one({"code":code},{"_id":0})
 
     return branch
 
